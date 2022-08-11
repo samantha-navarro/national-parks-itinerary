@@ -1,15 +1,16 @@
 import React from "react";
-import "./Login.css";
+
 
 export default function Login () {
 
     return (
-        <form action="" id="loginform">
+        // <form action="" id="loginform">
+        <React.Fragment>
             <label for='username'>Username</label>
             <input type="text" id="username" />
             <label for="password">Password</label>
-            <input type="text" id="password" />
+            <input type="password" id="password" />
             <input type="submit" value="submit" className="submit" />
-        </form>
+        </React.Fragment>
     )
 }
