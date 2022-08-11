@@ -1,0 +1,15 @@
+form#signupform {
+    top: -230px;
+    left: 500px;
+    position: relative;
+}
+
+form, .forgot-panel {
+    position: relative;
+    transition: all .5s ease;
+}
+
+.forgot-panel {
+    margin-top: -300px;
+    color: gray;
+}
