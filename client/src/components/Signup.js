@@ -1,10 +1,10 @@
 import React from "react";
-import "./Signup.css";
+
 
 export default function Signup () {
 
     return (
-        <form action="" id="signupform">
+        <React.Fragment>
             <label for="fullname">Full Name</label>
             <input type="text" id="fullname" />
             <label for="username">Username</label>
@@ -12,8 +12,8 @@ export default function Signup () {
             <label for="email">Email</label>
             <input type="text" id="email" />
             <label for="password">Password</label>
-            <input type="text"  id="password"/>
+            <input type="password"  id="password"/>
             <input type="submit" value="submit" class="submit" />
-        </form>
+        </React.Fragment>
     )
 }
