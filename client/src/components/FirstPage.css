@@ -13,8 +13,7 @@ html, body, body * {
     background-image: url("https://cdn.shopify.com/s/files/1/0277/4394/4841/products/TipsooReflection_ee5f2a2d-43cd-4770-833c-c03ab886e242_1024x1024@2x.jpg?v=1579577552");
     background-size: cover;
     background-position:center center;
-    width: "100%";
-    height: "100%";
+    
 }
 
 .container {

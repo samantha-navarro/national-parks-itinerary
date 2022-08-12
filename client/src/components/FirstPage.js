@@ -3,6 +3,7 @@ import Signup from "./Signup.js";
 import Login from "./Login.js";
 import { useSpring, animated } from "react-spring";
 import './FirstPage.css'
+import { Grid } from "@mui/material";
 
 export default function FirstPage() {
 
@@ -28,7 +29,15 @@ export default function FirstPage() {
 
 
   return (
-    <div className="body">
+    <Grid style={{ display: "inline-block", backgroundImage: "url(https://cdn.shopify.com/s/files/1/0277/4394/4841/products/TipsooReflection_ee5f2a2d-43cd-4770-833c-c03ab886e242_1024x1024@2x.jpg?v=1579577552)",
+    backgroundSize: "cover",
+    backgroundAttachment: "fixed",
+    width: "100%",
+    height: "100%",
+    position: "absolute", 
+    backgroundRepeat: "no-repeat", 
+    }}>
+    {/* <div className="body"> */}
     <div className="login-signup-wrapper">
      <div className='nav-buttons'>
               <animated.button
@@ -57,6 +66,7 @@ export default function FirstPage() {
      </div>
        {/* <animated.div className="forgot-panel" style={loginStyle}><a href="#">Forgot your password</a></animated.div> */}
     </div>
-    </div>
+    {/* </div> */}
+    </Grid>
   );
 }
