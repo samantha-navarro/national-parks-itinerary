@@ -5,6 +5,7 @@ export default function Signup () {
 
     return (
         <React.Fragment>
+            {/* <form action="" id="signupform"> */}
             <label for="fullname">Full Name</label>
             <input type="text" id="fullname" />
             <label for="username">Username</label>
@@ -14,6 +15,7 @@ export default function Signup () {
             <label for="password">Password</label>
             <input type="password"  id="password"/>
             <input type="submit" value="submit" class="submit" />
+            {/* </form> */}
         </React.Fragment>
     )
 }
