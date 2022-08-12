@@ -7,7 +7,7 @@ Itinerary.destroy_all
 puts "Seeding users .."
 10.times do
     User.create(
-        username: Faker::Name.username(specifier: 10),
+        username: Faker::Name.last_name,
         password: Faker::Internet.password,
         full_name: Faker::Name.name,
         email: Faker::Internet.email,
@@ -18,11 +18,11 @@ puts "Adding Parks .."
 
     yellowstone = Park.create(
         name: "Yellowstone National Park",
-        location: "Wyoming"
+        location: "Wyoming",
         image: "https://assets3.thrillist.com/v1/image/3087119/1200x630/flatten;crop_down;webp=auto;jpeg_quality=70"
     )
     hawaii = Park.create(
-        name: "Haleakalā National Park",
+        name: "Haleakalā National Park,",
         location: "Maui, Hawaii",
         image:"https://www.bikemaui.com/wp-content/uploads/2016/06/haleakala-sunrise-1.jpg"
     )
@@ -39,7 +39,7 @@ puts "Adding Parks .."
     )
     redwoods = Park.create(
         name: "Redwood National Park",
-        location: "California"
+        location: "California",
         image:"https://parksandtrips.com/wp-content/uploads/2022/01/redwoods.jpg"
     )
 
@@ -63,7 +63,7 @@ puts "Adding activities .."
     Activity.create(
         name: "Hike Artist Point",
         description: "Artist Point is an overlook point on the edge of a cliff on the south rim of the Grand Canyon of the Yellowstone in Yellowstone National Park, Wyoming. The point is located east-northeast of Yellowstone Falls on the Yellowstone River.",
-        image: "https://www.nomadbytrade.com/wp-content/uploads/Best-Yellowstone-Hikes-1080x675.jpg"
+        image: "https://www.nomadbytrade.com/wp-content/uploads/Best-Yellowstone-Hikes-1080x675.jpg",
         park_id: yellowstone.id
     )
 
@@ -77,7 +77,7 @@ puts "Adding activities .."
     Activity.create(
         name: "Kalahaku Overlook",
         description: "Located on Haleakala Highway. It's a short uphill walk to the viewpoint.",
-        image: "https://www.hawaii-guide.com/images/made/kalahakuoverlook_2500_893_95_s_1600_572_95_s_c1_c_b_0_0.jpg"
+        image: "https://www.hawaii-guide.com/images/made/kalahakuoverlook_2500_893_95_s_1600_572_95_s_c1_c_b_0_0.jpg",
         park_id: hawaii.id
     )
 
@@ -97,7 +97,7 @@ puts "Adding activities .."
 
     Activity.create(
         name: "Hike Ross Lake National Recreational Area",
-        description: "he NRA contains a portion of scenic Washington State Route 20, the North Cascades Highway, and includes three reservoirs: 12,000-acre Ross Lake, 910-acre Diablo Lake, and 210-acre Gorge Lake. These reservoirs make up the Skagit River Hydroelectric Project operated by Seattle City Light. Nestled in the "American Alps" the Ross Lake NRA bisects the north and south units of North Cascades National Park",
+        description: "he NRA contains a portion of scenic Washington State Route 20, the North Cascades Highway, and includes three reservoirs: 12,000-acre Ross Lake, 910-acre Diablo Lake, and 210-acre Gorge Lake. These reservoirs make up the Skagit River Hydroelectric Project operated by Seattle City Light. Nestled in the American Alps the Ross Lake NRA bisects the north and south units of North Cascades National Park",
         image:"https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcQau5VBW--lIyUU6wzxAghIVCk8NfAQCHdMwGHOHEQB22wM1K0PKoR22ydtVtkMmGXzPy8K7gSvJib3BVv4K07dWA",
         park_id: northcascades.id
     )
@@ -129,8 +129,7 @@ puts "Adding ititnerary .."
     Itinerary.create(
         date: DateTime.now,
         user_id: User.ids.sample,
-        activity_id: Activity.ids.sample,
-        park_id: Park.ids.sample
+        activity_id: Activity.ids.sample
 
     )
 end
