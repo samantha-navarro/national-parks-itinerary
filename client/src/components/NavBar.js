@@ -19,15 +19,9 @@ export default function NavBar () {
                 <li>
                     <Link to="/enter">SIGNUP / LOGIN</Link>
                 </li>
-                {/* <li>
-                    <Link to="/parks">PARKS</Link>
-                </li>
-                <li>
-                    <Link to="/itinerary">ITINERARY</Link>
-                </li> */}
             </ul>
             <div className="icons" onClick={handleClick}>
-            {click ? (<FaTimes size={20} style={{color: "green"}} />) : (  <FaBars size={20} style={{color: "green"}} />)}
+            {click ? (<FaTimes size={20} style={{color: "green"}} />) : (<FaBars size={20} style={{color: "green"}} />)}
             </div>
         </div>
     )
