@@ -7,19 +7,17 @@ import { Routes, Route } from "react-router-dom";
 import MainPage from "./MainPage";
 
 
-
-
 function App() {
 
 
   return (
     <div>
       <Routes>
-        <Route path="/" element={<FirstPage/>} />
-        <Route path="/main" element={<MainPage/>} />
+        <Route path="/enter" element={<FirstPage/>} />
+        <Route path="/" element={<MainPage/>} />
         <Route path="/parks" element={<Parks/>} />
         <Route path="/activities" element={<Activities/>} />
-        {/* <Itinerary/> */}
+        <Route path="/itinerary" element={<Itinerary />} />
       </Routes>
 
 

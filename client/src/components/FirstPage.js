@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Signup from "./Signup.js";
 import Login from "./Login.js";
 import { useSpring, animated } from "react-spring";
-import './FirstPage.css'
+import './css/FirstPage.css'
 import { Grid } from "@mui/material";
 
 export default function FirstPage() {
@@ -11,7 +11,6 @@ export default function FirstPage() {
   const [signup, setSignUp] = useState (false);
   const loginStyle = useSpring({
     left: signup ? -500 : 0
-    // opacity: signup ? 0 : 1
   })
 
   const signupStyle = useSpring({
