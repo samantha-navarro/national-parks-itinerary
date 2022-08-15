@@ -1,5 +1,7 @@
 import React from "react";
-import { Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
+import ActivityCard from "./ActivitiesCard";
+import "./css/Activity.css";
 
 export default function Activities () {
 
@@ -11,8 +13,17 @@ export default function Activities () {
     width: "100%",
     height: "100%",
     position: "absolute", 
-    backgroundRepeat: "no-repeat", 
-    }}>
+    backgroundRepeat: "no-repeat", }}>
+    <Typography variant="h1" mt={10} align="center" color="white">
+        Activities
+    </Typography>
+    <div className="cards">
+        <ActivityCard 
+        img=""
+        title="activty"
+        itinerary="button"
+        />
+        </div>
     </Grid>
     )
 }

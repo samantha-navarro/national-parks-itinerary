@@ -18,7 +18,7 @@ export default function Parks () {
         position: "absolute", 
         backgroundRepeat: "no-repeat", 
         }}>
-        <Typography variant="h1" mt={5} align="center">
+        <Typography variant="h1" mt={20} align="center">
             National Parks Service
         </Typography>
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} mt={10}>
