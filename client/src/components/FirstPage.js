@@ -5,7 +5,15 @@ import { useSpring, animated } from "react-spring";
 import './css/FirstPage.css'
 import { Grid } from "@mui/material";
 
-export default function FirstPage() {
+export default function FirstPage(setCurrentUser) {
+
+//   //login values
+//   const defaultValues = {
+//     username: "",
+//     password: "",
+// }
+
+//signup values
 
   //CSS
   const [signup, setSignUp] = useState (false);
@@ -36,7 +44,7 @@ export default function FirstPage() {
     position: "absolute", 
     backgroundRepeat: "no-repeat", 
     }}>
-    {/* <div className="body"> */}
+
     <div className="login-signup-wrapper">
      <div className='nav-buttons'>
               <animated.button
@@ -45,13 +53,15 @@ export default function FirstPage() {
               style={loginBtnStyle}
               // className="active"
               >Login</animated.button>
+            <div></div>
+            <br></br>
               <animated.button 
               onClick={signupClicked}
               id="signupBtn"
               style={signupBtnStyle}>Signup</animated.button>
      </div>
+     <br></br>
      <div className="form-group">
-      {/* //wrap animation form */}
       <animated.form action="" 
       id="loginform" 
       style={loginStyle}>
@@ -63,9 +73,7 @@ export default function FirstPage() {
           <Signup />
         </animated.form>
      </div>
-       {/* <animated.div className="forgot-panel" style={loginStyle}><a href="#">Forgot your password</a></animated.div> */}
     </div>
-    {/* </div> */}
     </Grid>
   );
 }
