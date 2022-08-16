@@ -1,104 +1,138 @@
 import React from "react";
 import { useState } from "react";
-import { Grid, TextField, InputAdornment, IconButton, Button } from "@mui/material";
+import { Grid, TextField, Button } from "@mui/material";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
+
+const defaultValues = {
+    full_name: "",
+    username: "",
+    password: "",
+    email: "",
+}
 
 export default function SignupPage ({ setCurrentUser }) {
 
-    // const [showPassword, setShowPassword] = useState(false);
+    const [formData, setFormData] = useState(defaultValues)
+    const [errors, setErrors] = useState([]);
 
-    // const handleClickShowPassword = () => {
-    //     setShowPassword((currentState) => !currentState);
-    // };
+    const navigate = useNavigate();
 
+    const {username, password, full_name, email} = formData
+
+    function handleSubmit(e){
+        e.preventDefault()
+        const user = {
+            full_name,
+            username,
+            password,
+            email,
+        }
+        fetch('/users', {
+            method:'POST',
+            headers:{'Content-Type': 'application/json'},
+            body: JSON.stringify(user)
+        })
+        .then(res => {
+            if(res.ok){
+                res.json().then(user => {
+                    // set current user here
+                    setCurrentUser(user)
+                    // need to route user to their mainpage
+                    navigate("/main")
+                })
+            } else {
+                res.json().then(json => setErrors(Object.entries(json.errors).flat()))
+                console.log(errors)
+            }
+        })
+        setFormData(defaultValues)
+    }
+
+    const handleChange = (e) => {
+        const { name, value } = e.target
+        setFormData({ ...formData, [name]: value })
+    }
 
     return(
         <>
-           <Grid style={{ display: "inline-block", backgroundImage: `url(https://cdn.shopify.com/s/files/1/0277/4394/4841/products/TipsooReflection_ee5f2a2d-43cd-4770-833c-c03ab886e242_1024x1024@2x.jpg?v=1579577552)`,
-      backgroundSize: "cover",
-      backgroundAttachment: "fixed-right",
-      width: "100%",
-      height: "100%",
-      position: "absolute", 
-      backgroundRepeat: "no-repeat",
-      }}>
-    <Grid style={{ display: "inline-block", width: "100%", height: "100%" }}>
-    <Grid style={{ width: "300px", height: "300px", margin: "auto", marginTop: "13%" }}>
-        <form>
-          {/* <form onSubmit={handleSubmit}> */}
+        <Grid style={{ display: "inline-block", backgroundImage: `url(https://pbs.twimg.com/media/FYDa6NMVUAEpwCQ?format=jpg&name=large)`,
+         backgroundSize: "cover",
+        backgroundAttachment: "fixed-right",
+         width: "100%",
+         height: "100%",
+        position: "absolute", 
+        backgroundRepeat: "no-repeat",
+        }}>
+        <Grid style={{ display: "inline-block", width: "100%", height: "100%" }}>
+        <Grid style={{ width: "300px", height: "300px", margin: "auto", marginTop: "13%" }}>
+        <form onSubmit={handleSubmit}>
             <Grid container 
             alignItems="center"
             direction="column"
             textAlign="center"
+            color="whitesmoke"
             >
-            <h2 style={{ marginTop: "2.5%", marginBottom: "2.5%" }}>SIGNUP<br></br>
+            <h2 style={{ marginTop: "2.5%", marginBottom: "2.5%", color: "whitesmoke" }}>SIGNUP<br></br>
             National Parks Itinerary</h2>
             <Grid item marginTop="5%" marginBottom="2%">
             <TextField
-                    InputLabelProps={{ shrink: true }}
-                    InputProps={{
-                      startAdornment: (
-                        <InputAdornment position="start">
-                          {/* <GiCat/> */}
-                        </InputAdornment>
-                      ),
-                    }}
+                  InputLabelProps={{ shrink: true }}
+                  InputProps={{
+                    style: {color: "white"}
+                  }}
                     id="full_name"
                     name="full_name"
                     label="Full Name"
                     type="text"
-                    // value={formData.full_name || ""}
-                    // onChange={handleChange}
-                    // required
+                    value={formData.full_name || ""}
+                    onChange={handleChange}
+                    required
                   />
             </Grid>
             <Grid item style={{ marginTop: "2.5%", marginBottom: "2.5%" }} >
             <TextField 
-            // style={{ color: "grey"}}
                   InputLabelProps={{ shrink: true }}
                   InputProps={{
-            
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        {/* <IoLogoOctocat /> */}
-                      </InputAdornment>
-                    ),
+                    style: {color: "white"}
                   }}
                   id="username"
                   name="username"
                   label="Username"
                   type="text"
-                //   value={formData.username || ""}
-                //   onChange={handleChange}
-                //   required
+                  value={formData.username || ""}
+                  onChange={handleChange}
+                  required
+                />
+            </Grid>
+            <Grid item style={{ marginTop: "2.5%", marginBottom: "2.5%" }} >
+            <TextField 
+                  InputLabelProps={{ shrink: true }}
+                  InputProps={{
+                    style: {color: "white"}
+                  }}
+                  id="email"
+                  name="email"
+                  label="Email"
+                  type="text"
+                  value={formData.email || ""}
+                  onChange={handleChange}
+                  required
                 />
             </Grid>
             <Grid item style={{ marginTop: "2.5%", marginBottom: "2.5%" }}>
             <TextField
                 InputLabelProps={{ shrink: true }}
                 InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="end">
-                      {/* <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={handleClickShowPassword}
-                        edge="start"
-                      > */}
-                        {/* {showPassword ? <Visibility /> : <VisibilityOff />}
-                      </IconButton> */}
-                    </InputAdornment>
-                  ),
+                  style: {color: "white"}
                 }}
                 id="password"
                 name="password"
                 label="Password"
                 type="password"
                 // type={showPassword ? "text" : "password"}
-                // value={formData.password || ""}
-                // onChange={handleChange}
-                // required
+                value={formData.password || ""}
+                onChange={handleChange}
+                required
               />
             </Grid>
             <Grid item style={{ marginTop: "2.5%", marginBottom: "2.5%" }}>
@@ -108,7 +142,6 @@ export default function SignupPage ({ setCurrentUser }) {
               </Button>
             </Grid>
             <Grid item marginBottom="5%">
-            <h5>Already have an account?</h5>
             <Button
               type="submit"
               variant="outlined"
@@ -116,15 +149,15 @@ export default function SignupPage ({ setCurrentUser }) {
               component={RouterLink}
               to="/"
             >
-              Login Instead
+              Login
             </Button>
+            <h5>Already have an account?</h5>
             </Grid>
             </Grid>
             </form>
             </Grid>
         </Grid>
     </Grid>
-        Hello Rose
         </>
     )
 }

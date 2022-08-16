@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import FirstPage from "./FirstPage";
 import Activities from "./Activities.js";
 import Parks from "./Parks.js";
 import Itinerary from "./Itinerary.js";
@@ -13,7 +12,7 @@ function App() {
 
   //fetch the logged in user when app loads if there is a user
   useEffect(() => {
-    fetch("/")
+    fetch("/main")
     .then(res => res.json())
     .then((user) => {
       setCurrentUser(user)
@@ -25,7 +24,7 @@ function App() {
     <div>
       
       <Routes>
-        {/* <Route path={currentUser ? "/main" : "/"} element={currentUser ? <MainPage currentUser={currentUser}/> : <LoginPage setCurrentUser={setCurrentUser}/>} /> */}
+        <Route path={currentUser ? "/main" : "/"} element={currentUser ? <MainPage currentUser={currentUser}/> : <LoginPage setCurrentUser={setCurrentUser}/>} />
 
         <Route path="/" element={<LoginPage setCurrentUser={setCurrentUser}/>}/>
 

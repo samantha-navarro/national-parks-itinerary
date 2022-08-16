@@ -1,23 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./css/NatureVideo.css";
-
-// import spaceVideo from "../assets/space.mp4"
+import nature from "../assets/nature.mp4";
+import { Button } from "@mui/material";
 
 export default function NatureVideo () {
-
     return (
-        <div>This is NatureVideo
-        <div className="video">
+        <div className="travel">
             <video autoPlay loop muted id="video">
-                {/* <source src={} type="video/mp4" /> */}
+                <source src={nature} type="video/mp4" />
             </video>
         <div className='content'>
-            <h1>Plan. Travel. Nature.</h1>
-            <p>Your next Itinerary trip of a lifetime.</p>
+            <h1>Plan. Travel. Adventure.</h1>
+            <p>Your next Itinerary trip of a lifetime</p>
+        <div>
+        <Button variant="outlined">
+            <Link to="/parks" className="btn">Parks</Link>
+            </Button>
+            <Button>
+            <Link to="/itinerary" className="btn btn-light">Itinerary</Link>
+            </Button>
         </div>
-            {/* <Link to="/" className="btn">Parks</Link>
-            <Link to="/" className="btn btn-light">Activities</Link> */}
         </div>
         </div>
     )

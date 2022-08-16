@@ -1,0 +1,64 @@
+#video {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.travel {
+    height: 100vh;
+    width: 100%;
+    object-fit: contain;
+}
+
+.travel .content {
+    text-align: center;
+    position: absolute;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    top: 40vh;
+}
+
+.travel .content h1 {
+    font-size: 4rem;
+    color: black;
+}
+
+.travel p {
+    font-size: 1.8rem;
+    font-weight: 200;
+    text-transform: uppercase;
+    margin-bottom: 1.6rem;
+    color: black;
+}
+
+.travel .btn {
+    margin: 1rem .2rem;
+}
+
+.travel .btn {
+    font-size: 18px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    padding: 5px 50px;
+    display: inline-block;
+    
+   
+}
+
+.btn:hover {
+    background-color: #grey; /* Green */
+    color: white;
+}
+
+
+
+
+.btn btn-light {
+    font-size: 30px;
+    transition-duration: 0.4s;
+}
+
+

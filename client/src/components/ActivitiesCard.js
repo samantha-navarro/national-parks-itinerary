@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from '@mui/material';
 import "./css/Activity.css";
 
 export default function ActivityCard () {
@@ -9,7 +10,8 @@ export default function ActivityCard () {
             <div className='card-body'>
                 <h2>Title</h2>
                 <p>Description</p>
-                <h5>Add to Itinerary</h5>
+                <br></br>
+                <Button variant="text" alignText="center" sx={{color: "#b0bec5"}}>Add to Itinerary</Button>
             </div>
         </div>
     )

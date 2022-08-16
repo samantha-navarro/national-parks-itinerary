@@ -4,12 +4,15 @@ import AspectRatio from '@mui/joy/AspectRatio';
 import Box from '@mui/joy/Box';
 import Sheet from '@mui/joy/Sheet';
 import { Grid, Typography } from '@mui/material';
+import NavBar from './NavBar';
 
 export default function Parks () {
 
   
 
     return (
+      <>
+      <NavBar />
         <Grid style={{ display: "inline-block", backgroundImage: "url(https://rockalittletravel.com/wp-content/uploads/2020/09/Sunrise-at-Tunnel-View-Yosemite.jpg?ezimgfmt=ng:webp/ngcb21)",
         backgroundSize: "cover",
         backgroundAttachment: "fixed",
@@ -52,5 +55,6 @@ export default function Parks () {
         </Sheet>
       </Box>
       </Grid>
+      </>
     )
 }

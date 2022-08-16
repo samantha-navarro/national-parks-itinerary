@@ -10,4 +10,6 @@ class User < ApplicationRecord
 
     validates :email, presence: true, uniqueness: true, length: { maximum: 30 }
 
+    # validates_format_of :email, with: /\b[A-Z0-9._%a-z\-]+@gmail\.com\z/
+
 end

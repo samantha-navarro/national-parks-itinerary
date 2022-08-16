@@ -1,12 +1,64 @@
-import React from "react";
+import { React, useState } from "react";
 import { useNavigate,  Link as RouterLink } from 'react-router-dom'
-import { Grid, Button, InputAdornment, IconButton, TextField } from "@mui/material";
+import { Grid, Button, TextField } from "@mui/material";
+import NavBar from "./NavBar";
 
-export default function LoginPage () {
+const defaultValues = {
+    username: "",
+    password: "",
+}
+
+export default function LoginPage ({ setCurrentUser }) {
+
+    const [formValues, setFormValues] = useState(defaultValues);
+
+    const navigate = useNavigate()
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormValues({
+          ...formValues,
+          [name]: value,
+        });
+      };
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const configObj = {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify({ ...formValues }),
+          };
+
+
+    fetch("/", configObj)
+    .then(res => {
+      if (res.ok) {
+        return res.json();
+      }
+      throw new Error('Incorrect Username or Password. Try Again!');
+    })
+    .then((user) => {
+      // set the state of the user
+      setCurrentUser(user)
+      // route user to their mainpage
+      navigate("/mainpage")
+    })
+    .catch((error) => {
+      alert(error)
+    })
+    setFormValues(defaultValues);
+    };
+
 
     return (
         <>
-     <Grid style={{ display: "inline-block", backgroundImage: "url(https://cdn.shopify.com/s/files/1/0277/4394/4841/products/TipsooReflection_ee5f2a2d-43cd-4770-833c-c03ab886e242_1024x1024@2x.jpg?v=1579577552)",
+        <NavBar/>
+     <Grid style={{ display: "inline-block", backgroundImage: "url(https://pbs.twimg.com/media/FYDa6NMVUAEpwCQ?format=jpg&name=large)",
     backgroundSize: "cover",
     backgroundAttachment: "fixed",
     width: "100%",
@@ -16,11 +68,12 @@ export default function LoginPage () {
     }}>
          <Grid style={{ display: "inline-block", width: "100%", height: "100%" }}>
          <Grid style={{ width: "350px", height: "350px", margin: "auto", marginTop: "13%" }}>
-            <form>
+            <form onSubmit={handleSubmit}>
             <Grid container 
               alignItems="center"
               direction="column"
               textAlign="center"
+              color="whitesmoke"
               >
                   <h2 style={{ marginTop: "5%" }}>Login to 
                   <br></br>National Parks Itinerary</h2>
@@ -34,34 +87,26 @@ export default function LoginPage () {
                 name="username"
                 label="Username"
                 type="text"
-                // value={formValues.username}
-                // onChange={handleChange}
-                // required
+                value={formValues.username}
+                onChange={handleChange}
+                required
                 />
                 </Grid>
                 <Grid item margin="auto" marginBottom="2.5%" >
                 <TextField
                   InputLabelProps={{ shrink: true }}
                   InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="end">
-                        {/* <IconButton
-                          aria-label="toggle password visibility"
-                          onClick={handleClickShowPassword}
-                          edge="start">
-                          {showPassword ? <Visibility /> : <VisibilityOff />}
-                        </IconButton> */}
-                      </InputAdornment>
-                    ),
+                    style: {color: "white"}
+                   
                   }}
                   id="password-input"
                   name="password"
                   label="Password"
                   type="password"
                 //   type={showPassword ? "text" : "password"}
-                //   value={formValues.password || ""}
-                //   onChange={handleChange}
-                //   required
+                  value={formValues.password || ""}
+                  onChange={handleChange}
+                  required
                 />
                 </Grid>  
                 <Grid item margin="auto" marginBottom="2%">
@@ -71,13 +116,13 @@ export default function LoginPage () {
                   Sign In
                 </Button>
               </Grid>
-              <h5>New here?</h5>
               <Grid item margin="auto" marginTop="1%">
                 <Button variant="outlined" type="submit" 
                 // sx={{backgroundColor:"#33691e"}}
                 component={RouterLink} to="/signup">
-                  Sign Up Instead
+                  Create an Account
                 </Button>
+                <h5>New here?</h5>
               </Grid>
             </Grid>
             </form>

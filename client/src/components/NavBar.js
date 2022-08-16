@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import { FaBars, FaTimes } from "react-icons/fa"; 
-import { green } from "@mui/material/colors";
+import { blueGrey } from "@mui/material/colors";
 import './css/NavBar.css'
 
 export default function NavBar () {
@@ -10,18 +10,17 @@ export default function NavBar () {
 
     return (
         <div className="header">
-            <Link to="/"><h1>National Parks Itinerary</h1></Link>
-            {/* <ul className="nav-menu"> */}
+            {/* <Link to="/main"><h1>National Parks Itinerary</h1></Link> */}
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                 <li>
-                    <Link to="/">HOME</Link>
+                    <Link to="/main">HOME</Link>
                 </li>
                 <li>
-                    <Link to="/enter">SIGNUP / LOGIN</Link>
+                    <Link to="/">LOGOUT</Link>
                 </li>
             </ul>
             <div className="icons" onClick={handleClick}>
-            {click ? (<FaTimes size={20} style={{color: "green"}} />) : (<FaBars size={20} style={{color: "green"}} />)}
+            {click ? (<FaTimes size={20} style={{color: "blueGrey"}} />) : (<FaBars size={20} style={{color: "blueGrey"}} />)}
             </div>
         </div>
     )
