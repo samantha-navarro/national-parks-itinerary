@@ -21,8 +21,8 @@ export default function Parks () {
         position: "absolute", 
         backgroundRepeat: "no-repeat", 
         }}>
-        <Typography variant="h1" mt={20} align="center" color="white">
-            National Parks Service
+        <Typography variant="h4" mt={20} align="center" color="white">
+            Choose a Park for Activities
         </Typography>
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} mt={10}>
         <Sheet

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    skip_before_action :authentication_user
+   #  skip_before_action :authentication_user
 
 
     #GET "/users"

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-    has_many :activities;
-    has_many :itineraries, through: :activities;
+    has_many :itineraries
+    has_many :activities, through: :itineraries
+    has_many :parks, through: :activities
 
     has_secure_password
 
