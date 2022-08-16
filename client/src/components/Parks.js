@@ -13,7 +13,7 @@ export default function Parks () {
     return (
       <>
       <NavBar />
-        <Grid style={{ display: "inline-block", backgroundImage: "url(https://rockalittletravel.com/wp-content/uploads/2020/09/Sunrise-at-Tunnel-View-Yosemite.jpg?ezimgfmt=ng:webp/ngcb21)",
+        <Grid style={{ display: "inline-block", backgroundImage: "url(https://pbs.twimg.com/media/FYDa6NMVUAEpwCQ?format=jpg&name=large)",
         backgroundSize: "cover",
         backgroundAttachment: "fixed",
         width: "100%",
@@ -21,7 +21,7 @@ export default function Parks () {
         position: "absolute", 
         backgroundRepeat: "no-repeat", 
         }}>
-        <Typography variant="h1" mt={20} align="center">
+        <Typography variant="h1" mt={20} align="center" color="white">
             National Parks Service
         </Typography>
         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} mt={10}>
@@ -33,6 +33,7 @@ export default function Parks () {
             p: 2,
             minWidth: 300,
             borderRadius: 'sm',
+            color: "white",
           }}
         >
           <AspectRatio

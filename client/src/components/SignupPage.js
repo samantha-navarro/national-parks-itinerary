@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Grid, TextField, Button } from "@mui/material";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
+import nightsky from "../assets/nightsky.mp4";
 
 const defaultValues = {
     full_name: "",
@@ -55,16 +56,11 @@ export default function SignupPage ({ setCurrentUser }) {
 
     return(
         <>
-        <Grid style={{ display: "inline-block", backgroundImage: `url(https://pbs.twimg.com/media/FYDa6NMVUAEpwCQ?format=jpg&name=large)`,
-         backgroundSize: "cover",
-        backgroundAttachment: "fixed-right",
-         width: "100%",
-         height: "100%",
-        position: "absolute", 
-        backgroundRepeat: "no-repeat",
-        }}>
-        <Grid style={{ display: "inline-block", width: "100%", height: "100%" }}>
-        <Grid style={{ width: "300px", height: "300px", margin: "auto", marginTop: "13%" }}>
+      <video autoPlay loop muted id="video">
+      <source src={nightsky} type="video/mp4" />
+            </video>
+            <Grid style={{ display: "inline-block", width: "100%", height: "100%" }}>
+         <Grid style={{ width: "350px", height: "350px", margin: "auto", marginTop: "13%" }}>
         <form onSubmit={handleSubmit}>
             <Grid container 
             alignItems="center"
@@ -157,7 +153,6 @@ export default function SignupPage ({ setCurrentUser }) {
             </form>
             </Grid>
         </Grid>
-    </Grid>
         </>
     )
 }

@@ -44,12 +44,10 @@
     cursor: pointer;
     padding: 5px 50px;
     display: inline-block;
-    
-   
 }
 
 .btn:hover {
-    background-color: #grey; /* Green */
+    /* background-color: grey; */
     color: white;
 }
 
