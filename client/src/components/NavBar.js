@@ -8,6 +8,8 @@ export default function NavBar () {
     const [click, setClick] = useState(false)
     const handleClick = () => setClick(!click)
 
+    
+
     return (
         <div className="header">
             {/* <Link to="/main"><h1>National Parks Itinerary</h1></Link> */}

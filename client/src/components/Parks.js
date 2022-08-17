@@ -30,7 +30,7 @@ export default function Parks () {
       <NavBar />
         <Grid style={{ display: "inline-block", backgroundImage: "url(https://pbs.twimg.com/media/FYDa6NMVUAEpwCQ?format=jpg&name=large)",
         backgroundSize: "cover",
-        // backgroundAttachment: "fixed",
+        backgroundAttachment: "fixed",
         width: "100%",
         height: "100%",
         // position: "absolute", 

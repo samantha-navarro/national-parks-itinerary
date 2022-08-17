@@ -1,7 +1,12 @@
 class ActivitiesController < ApplicationController
 
+
     def index
-        activities = Activity.all
+        if params[:park_id]
+            activities = Activity.where park_id: params[:park_id]
+        else
+            activities = Activity.all
+        end
         render json: activities, status: :ok
     end
 

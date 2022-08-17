@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get "/mainpage", to: "sessions#show"
+  get "/parks/:park_id/activities", to: "activities#index"
 
   # get"/cookie_click, to: "sessions#click"
   

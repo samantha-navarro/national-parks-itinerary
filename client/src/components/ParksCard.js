@@ -14,7 +14,7 @@ export default function ParksCard ({ park }) {
         <Box key={park.id} 
         sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} 
         mt={10}>
-        <Link component={RouterLink} to="/activities">
+        <Link component={RouterLink} to={`/activities/?park_id=${park.id}`}>
         <Sheet
           variant="outlined"
           sx={{

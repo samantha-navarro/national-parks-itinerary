@@ -19,7 +19,7 @@ export default function ItineraryCard () {
                 <h2>Title</h2>
                 <p>Description</p>
                 <br></br>
-                
+
                 {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
       <DatePicker
         label="Basic example"
@@ -32,7 +32,8 @@ export default function ItineraryCard () {
     </LocalizationProvider> */}
 
 
-                <h3>Date: 08.08.22</h3>
+                <h3>Date created: 08.08.22</h3>
+                <br></br>
                 <Button variant="text" alignText="center" sx={{color: "#b0bec5"}}>Delete</Button>
             </div>
         </div>

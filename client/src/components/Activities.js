@@ -3,15 +3,19 @@ import { Grid, Typography } from '@mui/material';
 import ActivityCard from "./ActivitiesCard";
 import "./css/Activity.css";
 import NavBar from "./NavBar";
+import { useSearchParams } from "react-router-dom";
 
-export default function Activities () {
+export default function Activities ({ park }) {
 
     const [allActivities, setAllActivities] = useState([]);
     const [errors, setErrors] = useState([]);
+    const [params] = useSearchParams()
+    const parkId = (params.get("park_id"))
+
 
     //requesting all activities from parks
     useEffect(() => {
-        fetch("/activities")
+        fetch(`/parks/${parkId}/activities`)
         .then(res => {
           if (res.ok){
             res.json().then(activity => {
@@ -23,6 +27,11 @@ export default function Activities () {
       })
     }, []);
 
+    //filtering Activities
+    // {activity.filter(fun => fun.park_id).map(parkActivities => (
+    //     <ActivityCard key={parkActivities}
+    //     parkActivities={parkActivities}/>
+    // ))}
 
 
     return (
@@ -33,7 +42,7 @@ export default function Activities () {
     backgroundAttachment: "fixed",
     width: "100%",
     height: "100%",
-    // position: "absolute", 
+    position: "absolute", 
     backgroundRepeat: "no-repeat", }}>
     <Typography variant="h1" mt={10} align="center" color="white">
         Activities
