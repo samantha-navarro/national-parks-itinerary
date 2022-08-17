@@ -16,6 +16,9 @@ export default function NavBar () {
                     <Link to="/main">HOME</Link>
                 </li>
                 <li>
+                    <Link to="/parks">PARKS</Link>
+                </li>
+                <li>
                     <Link to="/">LOGOUT</Link>
                 </li>
             </ul>

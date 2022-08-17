@@ -1,10 +1,16 @@
- import React from "react";
+ import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import { Button, Grid, Typography } from '@mui/material';
 import "./css/Activity.css";
 import ItineraryCard from "./ItineraryCard";
 
 export default function Itinerary () {
+    //keep track of our logged in user's itinerary during this session
+    const [addItinerary, setAddItinerary] = useState([])
+
+    // useEffect(() => {
+    //     if
+    // })
 
     return (
         <>
@@ -21,9 +27,9 @@ export default function Itinerary () {
     </Typography> 
     <div className="cards">
         <ItineraryCard 
-        img=""
-        title="activty"
-        itinerary="button"
+        // img=""
+        // title="activty"
+        // itinerary="button"
         />
         </div>
     </Grid>

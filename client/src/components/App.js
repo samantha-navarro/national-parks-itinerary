@@ -5,6 +5,7 @@ import Itinerary from "./Itinerary.js";
 import { Routes, Route } from "react-router-dom";
 import MainPage from "./MainPage";import LoginPage from "./LoginPage";
 import SignupPage from "./SignupPage";
+import ToDoItinerary from "./ToDoItinerary.js";
 
 function App() {
   //set our logged in user with login or signup
@@ -30,9 +31,6 @@ function App() {
 
         <Route path="/signup" element={<SignupPage setCurrentUser={setCurrentUser}/>} />
 
-
-        {/* <Route path="/" element={<FirstPage/>} /> */}
-
         <Route path="/main" element={<MainPage/>} />
 
         <Route path="/parks" element={<Parks/>} />
@@ -40,6 +38,8 @@ function App() {
         <Route path="/activities" element={<Activities/>} />
 
         <Route path="/itinerary" element={<Itinerary />} />
+
+        <Route path="/todo" element={<ToDoItinerary />} />
 
       </Routes>
 

@@ -1,10 +1,28 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import { Grid, Typography } from '@mui/material';
 import ActivityCard from "./ActivitiesCard";
 import "./css/Activity.css";
 import NavBar from "./NavBar";
 
 export default function Activities () {
+
+    const [allActivities, setAllActivities] = useState([]);
+    const [errors, setErrors] = useState([]);
+
+    //requesting all activities from parks
+    useEffect(() => {
+        fetch("/activities")
+        .then(res => {
+          if (res.ok){
+            res.json().then(activity => {
+              setAllActivities(activity)
+            })
+        } else {
+          res.json().then(json => setErrors(Object.entries(json.errors)))
+        }
+      })
+    }, []);
+
 
 
     return (
@@ -15,17 +33,16 @@ export default function Activities () {
     backgroundAttachment: "fixed",
     width: "100%",
     height: "100%",
-    position: "absolute", 
+    // position: "absolute", 
     backgroundRepeat: "no-repeat", }}>
     <Typography variant="h1" mt={10} align="center" color="white">
         Activities
     </Typography>
     <div className="cards">
-        <ActivityCard 
-        img=""
-        title="activty"
-        itinerary="button"
+        {allActivities.map((fun) => (
+        <ActivityCard key={fun.id} fun={fun}
         />
+        ))}
         </div>
     </Grid>
     </>

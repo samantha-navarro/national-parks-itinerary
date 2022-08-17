@@ -1,13 +1,28 @@
 // import React from "react";
-import { React, useState } from 'react';
-import AspectRatio from '@mui/joy/AspectRatio';
-import Box from '@mui/joy/Box';
-import Sheet from '@mui/joy/Sheet';
+import { React, useEffect, useState } from 'react';
 import { Grid, Typography } from '@mui/material';
 import NavBar from './NavBar';
+import ParksCard from './ParksCard';
+
 
 export default function Parks () {
 
+  const [allParks, setAllParks] = useState([]);
+  const [errors, setErrors] = useState([]);
+
+  // requesting all parks
+  useEffect(() => {
+    fetch("/parks")
+    .then(res => {
+      if (res.ok){
+        res.json().then(parks => {
+          setAllParks(parks)
+        })
+    } else {
+      res.json().then(json => setErrors(Object.entries(json.errors)))
+    }
+  })
+}, []);
   
 
     return (
@@ -15,46 +30,18 @@ export default function Parks () {
       <NavBar />
         <Grid style={{ display: "inline-block", backgroundImage: "url(https://pbs.twimg.com/media/FYDa6NMVUAEpwCQ?format=jpg&name=large)",
         backgroundSize: "cover",
-        backgroundAttachment: "fixed",
+        // backgroundAttachment: "fixed",
         width: "100%",
         height: "100%",
-        position: "absolute", 
+        // position: "absolute", 
         backgroundRepeat: "no-repeat", 
         }}>
         <Typography variant="h4" mt={20} align="center" color="white">
             Choose a Park for Activities
         </Typography>
-        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} mt={10}>
-        <Sheet
-          variant="outlined"
-          sx={{
-            display: 'flex',
-            gap: 2,
-            p: 2,
-            minWidth: 300,
-            borderRadius: 'sm',
-            color: "white",
-          }}
-        >
-          <AspectRatio
-            sx={{
-              flexBasis: "250px",
-              borderRadius: 'sm',
-              overflow: 'auto',
-            }}
-          >
-            <img
-              src="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800"
-              srcSet="https://images.unsplash.com/photo-1502657877623-f66bf489d236?auto=format&fit=crop&w=800&dpr=2 2x"
-              alt=""
-            />
-          </AspectRatio>
-          <Box>
-            <Typography fontWeight="md">Yosemite National Park</Typography>
-            <Typography level="body2">California, USA</Typography>
-          </Box>
-        </Sheet>
-      </Box>
+        {allParks.map((park) => (
+        <ParksCard key={park.id} park={park}/>
+        ))}
       </Grid>
       </>
     )
