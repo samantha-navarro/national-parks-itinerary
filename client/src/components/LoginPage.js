@@ -1,7 +1,6 @@
 import { React, useState } from "react";
 import { useNavigate,  Link as RouterLink } from 'react-router-dom'
 import { Grid, Button, TextField } from "@mui/material";
-import NavBar from "./NavBar";
 import nightsky from "../assets/nightsky.mp4";
 
 const defaultValues = {
@@ -36,7 +35,7 @@ export default function LoginPage ({ setCurrentUser }) {
           };
 
 
-    fetch("/", configObj)
+    fetch("/login", configObj)
     .then(res => {
       if (res.ok) {
         return res.json();
@@ -47,7 +46,7 @@ export default function LoginPage ({ setCurrentUser }) {
       // set the state of the user
       setCurrentUser(user)
       // route user to their mainpage
-      navigate("/mainpage")
+      navigate("/main")
     })
     .catch((error) => {
       alert(error)
@@ -123,7 +122,6 @@ export default function LoginPage ({ setCurrentUser }) {
             </form>
             </Grid>
         </Grid>
-    {/* </Grid> */}
         </>
     )
 }

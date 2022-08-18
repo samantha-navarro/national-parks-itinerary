@@ -1,12 +1,33 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import { Grid, Typography } from '@mui/material';
 import ActivityCard from "./ActivitiesCard";
 import "./css/Activity.css";
 import NavBar from "./NavBar";
+import { useSearchParams } from "react-router-dom";
 
-export default function Activities () {
 
+export default function Activities ({ userId }) {
 
+    const [allActivities, setAllActivities] = useState([]);
+    const [errors, setErrors] = useState([]);
+    const [params] = useSearchParams()
+    const parkId = (params.get("park_id"))
+
+    //requesting all activities from parks
+    useEffect(() => {
+        fetch(`/parks/${parkId}/activities`)
+        .then(res => {
+          if (res.ok){
+            res.json().then(activity => {
+              setAllActivities(activity)
+            })
+        } else {
+          res.json().then(json => setErrors(Object.entries(json.errors)))
+        }
+      })
+    }, []);
+
+    
     return (
         <>
         <NavBar/>
@@ -21,11 +42,10 @@ export default function Activities () {
         Activities
     </Typography>
     <div className="cards">
-        <ActivityCard 
-        img=""
-        title="activty"
-        itinerary="button"
+        {allActivities.map((fun) => (
+        <ActivityCard userId={userId} key={fun.id} fun={fun}
         />
+        ))}
         </div>
     </Grid>
     </>
