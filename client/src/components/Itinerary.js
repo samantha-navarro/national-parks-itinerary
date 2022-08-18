@@ -9,6 +9,7 @@ export default function Itinerary ({ fun }) {
     //keep track of our logged in user's itinerary during this session
     const [addItinerary, setAddItinerary] = useState([])
     const [errors, setErrors] = useState([]);
+    //keep track of our loggied in user's  plan during this session
 
 
     //requesting all itineraries from activities
@@ -28,10 +29,6 @@ export default function Itinerary ({ fun }) {
     const deletePost = (id) => setAddItinerary
     (current => current.filter(p => p.id !== id))
 
-    //DELETE
-    // fetch(`/acivities/${user.id}`, {
-    //     method: "DELETE"
-    // })
 
 
 
@@ -50,7 +47,7 @@ export default function Itinerary ({ fun }) {
     </Typography> 
     <div className="cards">
         {addItinerary.map((plan) => (
-            <ItineraryCard key={plan.id} plan={plan} deletePost={deletePost} 
+            <ItineraryCard key={plan.id} plan={plan} deletePost={deletePost}
             />
         ))}
         </div>

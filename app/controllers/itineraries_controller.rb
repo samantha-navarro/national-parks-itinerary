@@ -16,7 +16,7 @@ class ItinerariesController < ApplicationController
     end
 
     def destroy
-        user = User.find(params[:id])
+        user = Itinerary.find(params[:id])
         user.destroy
         head :no_content
     end

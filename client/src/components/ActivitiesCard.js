@@ -13,7 +13,7 @@ const defaultValues = {
 export default function ActivityCard ({ fun, userId }) {
     const [postValues, setPostValues] = useState(defaultValues);
 
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
 useEffect(() => {
   setPostValues({  
@@ -36,7 +36,7 @@ useEffect(() => {
       fetch('/itineraries', configObj)
       .then(res => res.json())
       .then((newItinerary) => setPostValues(newItinerary))
-      navigate('/itinerary')
+      // navigate('/itinerary')
       setPostValues(defaultValues)
     }
 

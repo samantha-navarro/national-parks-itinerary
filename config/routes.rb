@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   get "/main", to: "sessions#show"
   get "/parks/:park_id/activities", to: "activities#index"
-  # post "/itineraries/activities", to: "itineraries#create"
 
   # get"/cookie_click, to: "sessions#click"
   

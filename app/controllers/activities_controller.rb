@@ -17,18 +17,6 @@ class ActivitiesController < ApplicationController
         render json: activity, status: :ok
     end
 
-    # POST "/activities"
-    # Fetch this route  when the user creates a new Acivity
-    # def create
-    #     activity = Activity.find(params[:id])
-    #     activity.create!(activity_params)
-    #     render json: activity, status: :created
-    # end
-
-    private
-    # def activity_params
-
-    # end
     
 
 end

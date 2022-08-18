@@ -3,19 +3,16 @@ import NavBar from "./NavBar";
 import { Button, TextField } from '@mui/material';
 import "./css/Activity.css";
 
-export default function ItineraryCard ({ plan }) {
+export default function ItineraryCard ({ plan, deletePost }) {
 
- 
-
-
-    // DELETE
-    function handleDeleteClick ({ deletePost }) {
-      // make a delete fetch request and update the backend as well as the post state
-      fetch('/itinerary', {
-        method: "DELETE"
-      })
-      deletePost()
-    };
+  //DELETE
+  function handleDeleteClick () {
+    //make a delete fetch request and update the backend as the post state
+    fetch(`/itineraries/${plan.id}`, {
+      method: "DELETE"
+    })
+    deletePost(plan.id)
+  }
 
 
     return (
