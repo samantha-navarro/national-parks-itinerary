@@ -39,11 +39,12 @@
         top: 0;
         left: -100%;
         text-align: center;
-        width: 100%;
+        width: 30%;
         height: 100vh;
         transition: 0.3s;
         z-index: -1;
-        background: white;
+        background: whitesmoke;
+
     }
 
     .nav-menu.active {
