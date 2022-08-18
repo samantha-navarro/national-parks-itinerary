@@ -10,10 +10,11 @@ export default function ToDoItinerary () {
         setInput(e.target.value);
      }
 
-    //  const onFormSubmit = (e) => {
-    //     e.preventDefault()
-    //     setTodos9([...todos, ])
-    //  }
+     const onFormSubmit = (e) => {
+        e.preventDefault()
+        setTodos([...todos, { title: input, completed: false }]);
+        setInput("");
+     }
 
     return (
         <div className="contain">
@@ -31,7 +32,15 @@ export default function ToDoItinerary () {
                         />
                         <button className="button-add">Add</button>
                     </form>
-                    
+                </div>
+                <div>
+                    {todos.map((todo) => (
+                        <li className="list-item" key={todo.id}>
+                        <input type="text" value={todo.title} className="list" onChange={(e) => e.preventDefault()}
+                        />
+
+                        </li>
+                    ))}
                 </div>
                 </div>
             

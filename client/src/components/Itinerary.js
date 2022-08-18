@@ -4,13 +4,36 @@ import { Button, Grid, Typography } from '@mui/material';
 import "./css/Activity.css";
 import ItineraryCard from "./ItineraryCard";
 
-export default function Itinerary () {
+
+export default function Itinerary ({ fun }) {
     //keep track of our logged in user's itinerary during this session
     const [addItinerary, setAddItinerary] = useState([])
+    const [errors, setErrors] = useState([]);
 
-    // useEffect(() => {
-    //     if
+
+    //requesting all itineraries from activities
+    useEffect(() => {
+        fetch("/itineraries")
+        .then(res => {
+            if(res.ok){
+                res.json().then(itinerary => {
+                    setAddItinerary(itinerary)
+                })
+            } else {
+                res.json().then(json => setErrors(Object.entries(json.errors)))
+            }
+        })
+    }, []);
+
+    const deletePost = (id) => setAddItinerary
+    (current => current.filter(p => p.id !== id))
+
+    //DELETE
+    // fetch(`/acivities/${user.id}`, {
+    //     method: "DELETE"
     // })
+
+
 
     return (
         <>
@@ -20,17 +43,16 @@ export default function Itinerary () {
     backgroundAttachment: "fixed",
     width: "100%",
     height: "100%",
-    position: "absolute", 
+    position: "absolute",
     backgroundRepeat: "no-repeat", }}>
     <Typography variant="h1" mt={10} align="center" color="black">
         Itinerary
     </Typography> 
     <div className="cards">
-        <ItineraryCard 
-        // img=""
-        // title="activty"
-        // itinerary="button"
-        />
+        {addItinerary.map((plan) => (
+            <ItineraryCard key={plan.id} plan={plan} deletePost={deletePost} 
+            />
+        ))}
         </div>
     </Grid>
         </>

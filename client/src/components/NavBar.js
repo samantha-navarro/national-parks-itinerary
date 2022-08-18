@@ -1,14 +1,23 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { FaBars, FaTimes } from "react-icons/fa"; 
 import { blueGrey } from "@mui/material/colors";
 import './css/NavBar.css'
 
-export default function NavBar () {
+export default function NavBar ({ setCurrentUser }) {
     const [click, setClick] = useState(false)
     const handleClick = () => setClick(!click)
 
-    
+    //logout button
+    const handleLogOut = () => {
+        //DELETE '/logout'
+        fetch('/logout', {
+            method: "DELETE"
+        })
+        setCurrentUser(false)
+        localStorage.clear();
+        Navigate('/')
+    };
 
     return (
         <div className="header">
@@ -21,7 +30,7 @@ export default function NavBar () {
                     <Link to="/parks">PARKS</Link>
                 </li>
                 <li>
-                    <Link to="/">LOGOUT</Link>
+                    <Link onCLick={handleLogOut} to="/">LOGOUT</Link>
                 </li>
             </ul>
             <div className="icons" onClick={handleClick}>

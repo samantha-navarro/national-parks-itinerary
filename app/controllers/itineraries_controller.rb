@@ -1,7 +1,7 @@
 class ItinerariesController < ApplicationController
 
     def index
-        itineraries = Itinerary.all
+        itineraries = Itinerary.where(user_id: session[:user_id])
         render json: itineraries, status: :ok
     end
 
@@ -11,7 +11,8 @@ class ItinerariesController < ApplicationController
     end
 
     def create
-        
+        itinerary = Itinerary.create!(itinerary_params)
+        render json: itinerary, render: :created
     end
 
     def destroy
@@ -19,4 +20,12 @@ class ItinerariesController < ApplicationController
         user.destroy
         head :no_content
     end
+
+
+    private
+
+    def itinerary_params
+        params.permit(:date, :user_id, :activity_id)
+    end
+
 end

@@ -35,7 +35,7 @@ function App() {
 
         <Route path="/parks" element={<Parks/>} />
 
-        <Route path="/activities" element={<Activities/>} />
+        <Route path="/activities" element={<Activities userId={currentUser.id}/>} />
 
         <Route path="/itinerary" element={<Itinerary />} />
 

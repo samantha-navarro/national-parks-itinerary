@@ -5,13 +5,13 @@ import "./css/Activity.css";
 import NavBar from "./NavBar";
 import { useSearchParams } from "react-router-dom";
 
-export default function Activities ({ park }) {
+
+export default function Activities ({ userId }) {
 
     const [allActivities, setAllActivities] = useState([]);
     const [errors, setErrors] = useState([]);
     const [params] = useSearchParams()
     const parkId = (params.get("park_id"))
-
 
     //requesting all activities from parks
     useEffect(() => {
@@ -27,13 +27,7 @@ export default function Activities ({ park }) {
       })
     }, []);
 
-    //filtering Activities
-    // {activity.filter(fun => fun.park_id).map(parkActivities => (
-    //     <ActivityCard key={parkActivities}
-    //     parkActivities={parkActivities}/>
-    // ))}
-
-
+    
     return (
         <>
         <NavBar/>
@@ -49,7 +43,7 @@ export default function Activities ({ park }) {
     </Typography>
     <div className="cards">
         {allActivities.map((fun) => (
-        <ActivityCard key={fun.id} fun={fun}
+        <ActivityCard userId={userId} key={fun.id} fun={fun}
         />
         ))}
         </div>
