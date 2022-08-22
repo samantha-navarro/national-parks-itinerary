@@ -45,13 +45,15 @@ export default function ItineraryCard ({ plan, deletePost }) {
                 <br></br>
                 <h3>Date created: {plan.date}</h3>
                 <br></br>
+                <br></br>
+                <Button onClick={handleOpen}
+                sx={{color: "#b0bec5"}}>TO Do</Button>
                 <Button 
                 onClick={handleDeleteClick}
                 variant="text" 
                 alignText="center" 
-                sx={{color: "#b0bec5"}}>Delete</Button>
-                <br></br>
-                <Button onClick={handleOpen}>TO Do</Button>
+                sx={{color: "red", float: "right"}}>Delete</Button>
+              
       <Modal
         open={open}
         onClose={handleClose}

@@ -173,7 +173,6 @@ puts "Adding uncompleted Todos created .."
         task: "Camera essentials", 
         completed: true
     )
-end
 
 
 puts "Done seeding!"
