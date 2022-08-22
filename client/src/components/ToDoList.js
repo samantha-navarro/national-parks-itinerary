@@ -13,10 +13,10 @@ export default function ToDoList () {
 
 
     const handleToggle = (id) => {
-        let mapped = toDoList.map(task => {
+        let map = toDoList.map(task => {
             return task.id == Number(id) ? { ...task, complete: !task.complete } : { ...task};
          })
-         setToDoList(mapped);
+         setToDoList(map);
     }
 
     const handleFilter = () => {

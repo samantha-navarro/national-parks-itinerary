@@ -4,12 +4,15 @@ Rails.application.routes.draw do
   resources :activities, only: [:index, :show, :create, :destroy]
   resources :parks, only: [:index, :show]
   resources :users, only: [:index, :show, :create, :destroy]
+  # resources :todos, only: [:index]
 
   #custom routes
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get "/main", to: "sessions#show"
   get "/parks/:park_id/activities", to: "activities#index"
+
+
 
   # get"/cookie_click, to: "sessions#click"
   

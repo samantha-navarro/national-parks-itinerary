@@ -147,6 +147,35 @@ puts "Adding ititnerary .."
     )
 end
 
+puts "Adding uncompleted Todos created .."
+
+    Todo.create!( 
+        task: "Get Groceries", 
+        completed: false
+    )
+
+    Todo.create!( 
+        task: "Pack light bulbs", 
+        completed: false
+    )
+
+    Todo.create!( 
+        task: "Bring snacks", 
+        completed: true
+    )
+
+    Todo.create!( 
+        task: "Fill up water bottle", 
+        completed: false
+    )
+
+    Todo.create!( 
+        task: "Camera essentials", 
+        completed: true
+    )
+end
+
+
 puts "Done seeding!"
 
 # This file should contain all the record creation needed to seed the database with its default values.
