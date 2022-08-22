@@ -10,6 +10,7 @@
     height: 100vh;
     width: 100%;
     object-fit: contain;
+    margin: 0;
 }
 
 .travel .content {
@@ -32,6 +33,7 @@
     text-transform: uppercase;
     margin-bottom: 1.6rem;
     color: black;
+    overflow: "scroll"
 }
 
 .travel .btn {
@@ -50,8 +52,6 @@
     /* background-color: grey; */
     color: white;
 }
-
-
 
 
 .btn btn-light {

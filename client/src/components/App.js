@@ -6,6 +6,8 @@ import { Routes, Route } from "react-router-dom";
 import MainPage from "./MainPage";import LoginPage from "./LoginPage";
 import SignupPage from "./SignupPage";
 import ToDoItinerary from "./ToDoItinerary.js";
+import ToDoList from "./ToDoList.js";
+
 
 function App() {
   //set our logged in user with login or signup
@@ -39,7 +41,7 @@ function App() {
 
         <Route path="/itinerary" element={<Itinerary />} />
 
-        <Route path="/todo" element={<ToDoItinerary />} />
+        <Route path="/todo" element={<ToDoList />} />
 
       </Routes>
 

@@ -37,7 +37,8 @@ export default function Activities ({ userId }) {
     width: "100%",
     height: "100%",
     position: "absolute", 
-    backgroundRepeat: "no-repeat", }}>
+    backgroundRepeat: "no-repeat",
+     overflow: "scroll" }}>
     <Typography variant="h1" mt={10} align="center" color="white">
         Activities
     </Typography>

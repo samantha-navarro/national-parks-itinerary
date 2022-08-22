@@ -37,9 +37,6 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center; 
-    /* display: inline-block;
-    /* align-items: flex-start; */
-      /* justify-content: center; */ 
   }
   
   .card {

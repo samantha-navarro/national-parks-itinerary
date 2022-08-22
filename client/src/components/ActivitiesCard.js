@@ -52,7 +52,8 @@ useEffect(() => {
                 <p>{fun.description}</p>
                 <br></br>
                 <Link component={RouterLink} to="/itinerary">
-                <Button onClick={handleSubmit}variant="text" alignText="center" sx={{color: "#b0bec5"}}>Add to Itinerary</Button>
+                <Button onClick={handleSubmit}variant="text" alignText="center" sx={{color: "#b0bec5"}}>Add to Itinerary
+                </Button>
                 </Link>
             </div>
         </div>
