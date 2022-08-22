@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ToDoContainer from "./ToDoContainer";
 import ToDoHeader from "./ToDoHeader";
 import ToDoForm from "./ToDoForm";
@@ -11,11 +11,12 @@ export default function ToDoList () {
 
     const [toDoList, setToDoList] = useState(data);
 
+
     const handleToggle = (id) => {
-        let mapped = toDoList.map(task => {
+        let map = toDoList.map(task => {
             return task.id == Number(id) ? { ...task, complete: !task.complete } : { ...task};
          })
-         setToDoList(mapped);
+         setToDoList(map);
     }
 
     const handleFilter = () => {
