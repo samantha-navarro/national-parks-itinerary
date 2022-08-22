@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ToDoContainer from "./ToDoContainer";
 import ToDoHeader from "./ToDoHeader";
 import ToDoForm from "./ToDoForm";
@@ -10,6 +10,7 @@ import data from "./css/data.json";
 export default function ToDoList () {
 
     const [toDoList, setToDoList] = useState(data);
+
 
     const handleToggle = (id) => {
         let mapped = toDoList.map(task => {

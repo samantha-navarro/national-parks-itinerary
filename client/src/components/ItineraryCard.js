@@ -1,9 +1,26 @@
 import React, { useState } from "react";
-import NavBar from "./NavBar";
-import { Button, TextField } from '@mui/material';
+import ToDoList from "./ToDoList.js";
+import { Button, Modal, Box, Typography } from '@mui/material';
 import "./css/Activity.css";
 
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
+
 export default function ItineraryCard ({ plan, deletePost }) {
+
+  //Material UI
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   //DELETE
   function handleDeleteClick () {
@@ -33,6 +50,18 @@ export default function ItineraryCard ({ plan, deletePost }) {
                 variant="text" 
                 alignText="center" 
                 sx={{color: "#b0bec5"}}>Delete</Button>
+                <br></br>
+                <Button onClick={handleOpen}>TO Do</Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <ToDoList />
+        </Box>
+      </Modal>
             </div>
         </div>
         </>

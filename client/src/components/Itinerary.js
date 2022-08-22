@@ -1,5 +1,5 @@
  import React, { useEffect, useState } from "react";
-import NavBar from "./NavBar";
+import ItineraryNavBar from "./ItineraryNavBar.js";
 import { Grid, Typography } from '@mui/material';
 import "./css/Activity.css";
 import ItineraryCard from "./ItineraryCard";
@@ -34,7 +34,7 @@ export default function Itinerary ({ fun }) {
 
     return (
         <>
-        <NavBar />
+        <ItineraryNavBar />
         <></>
         <Grid style={{ 
             display: "inline-block", 
