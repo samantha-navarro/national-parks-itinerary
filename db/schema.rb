@@ -46,8 +46,10 @@ ActiveRecord::Schema.define(version: 2022_08_22_185439) do
   create_table "todos", force: :cascade do |t|
     t.string "task"
     t.boolean "complete", default: false
+    t.bigint "itinerary_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["itinerary_id"], name: "index_todos_on_itinerary_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,4 +64,5 @@ ActiveRecord::Schema.define(version: 2022_08_22_185439) do
   add_foreign_key "activities", "parks"
   add_foreign_key "itineraries", "activities"
   add_foreign_key "itineraries", "users"
+  add_foreign_key "todos", "itineraries"
 end
