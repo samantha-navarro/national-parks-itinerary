@@ -25,6 +25,10 @@
 .icons {
     display: none;
 }
+
+h1, p, h3 {
+    text-align: center;
+}
     
 @media screen and (max-width:1240px) {
     .icons {
@@ -69,6 +73,7 @@ a {
 
 a:hover {
     color:rgb(36, 118, 189);
+    text-decoration: none;
 }
 
 

@@ -1,81 +1,17 @@
 [{
     "id": 1,
-    "task": "Pack batteries",
-    "complete": true
+    "task": "Bring snacks",
+    "complete": false
   }, {
     "id": 2,
-    "task": "Do laundry",
-    "complete": true
+    "task": "Pack extra clothes",
+    "complete": false
   }, {
     "id": 3,
-    "task": "Vacuum car",
+    "task": "Refill water bottle",
     "complete": false
   }, {
     "id": 4,
-    "task": "Feed cat before",
-    "complete": true
-  }, {
-    "id": 5,
-    "task": "Change light bulbs",
-    "complete": false
-  }, {
-    "id": 6,
-    "task": "Get groceries",
-    "complete": true
-  }, {
-    "id": 7,
-    "task": "Fill gas tank",
-    "complete": true
-  }, {
-    "id": 8,
-    "task": "Bring change of clothes",
-    "complete": false
-  }, {
-    "id": 9,
-    "task": "Get snacks",
-    "complete": true
-  }, {
-    "id": 10,
-    "task": "Bake Cookies",
-    "complete": false
-  }, {
-    "id": 11,
-    "task": "Pack backpack",
-    "complete": true
-  }, {
-    "id": 12,
-    "task": "Bring reading books",
-    "complete": true
-  }, {
-    "id": 13,
-    "task": "Exercise",
-    "complete": false
-  }, {
-    "id": 14,
-    "task": "Bring dog items",
-    "complete": false
-  }, {
-    "id": 15,
-    "task": "Do laundry",
-    "complete": false
-  }, {
-    "id": 16,
-    "task": "",
-    "complete": false
-  }, {
-    "id": 17,
-    "task": "",
-    "complete": true
-  }, {
-    "id": 18,
-    "task": "",
-    "complete": false
-  }, {
-    "id": 19,
-    "task": "",
-    "complete": false
-  }, {
-    "id": 20,
-    "task": "",
+    "task": "Bring tech essentials",
     "complete": false
   }]

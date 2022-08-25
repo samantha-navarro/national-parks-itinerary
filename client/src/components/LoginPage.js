@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import { useNavigate,  Link as RouterLink } from 'react-router-dom'
 import { Grid, Button, TextField } from "@mui/material";
 import nightsky from "../assets/nightsky.mp4";
+// import clouds from "../assets/clouds.mp4";
 
 const defaultValues = {
     username: "",
