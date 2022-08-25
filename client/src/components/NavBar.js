@@ -11,8 +11,9 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
+  width: 600,
+  bgcolor: "whitesmoke",
+//   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
@@ -57,7 +58,7 @@ export default function NavBar ({ setCurrentUser }) {
                     <Link onCLick={handleLogOut} to="/">LOGOUT</Link>
                 </li>
                 <li>
-                <Button onClick={handleOpen}>CONTACT</Button>
+                <Button sx={{ color: "black" }}onClick={handleOpen}>CONTACT</Button>
                     <Modal
         open={open}
         onClose={handleClose}
