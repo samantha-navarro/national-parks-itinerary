@@ -25,6 +25,10 @@
 .icons {
     display: none;
 }
+
+h1, p, h3 {
+    text-align: center;
+}
     
 @media screen and (max-width:1240px) {
     .icons {

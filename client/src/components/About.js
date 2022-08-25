@@ -1,15 +1,13 @@
 import React from 'react'
 import AboutNavBar from './AboutNavBar';
-import { Button, Modal, Grid, Box,  } from '@mui/material';
 import './css/About.css'
-// // import { Link } from "react-router-dom";
 // import nightsky from "../assets/nightsky.mp4";
 import clouds from "../assets/clouds.mp4";
 
 
 export default function About() {
 
-
+    
   return (
     <>
       <AboutNavBar />
