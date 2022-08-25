@@ -1,0 +1,27 @@
+.about {
+    height: 100vh;
+    width: 100%;
+    object-fit: contain;
+    margin: 0;
+}
+
+.about .content {
+    text-align: center;
+    position: absolute;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    top: 20vh;
+     /* text-transform: uppercase; */
+
+}
+
+.about p {
+    font-size: 1.5rem;
+    font-weight: 200;
+    /* text-transform: uppercase; */
+    margin-bottom: 1.6rem;
+    color: black;
+    overflow: "scroll";
+    /* background-color: whitesmoke; */
+}

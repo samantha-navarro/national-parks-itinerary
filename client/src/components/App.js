@@ -7,6 +7,8 @@ import MainPage from "./MainPage";import LoginPage from "./LoginPage";
 import SignupPage from "./SignupPage";
 import ToDoItinerary from "./ToDoItinerary.js";
 import ToDoList from "./ToDoList.js";
+import About from "./About.js";
+import Contact from "./Contact.js";
 
 
 function App() {
@@ -34,6 +36,10 @@ function App() {
         <Route path="/signup" element={<SignupPage setCurrentUser={setCurrentUser}/>} />
 
         <Route path="/main" element={<MainPage/>} />
+
+        <Route path="/about" element={<About />} />
+
+        <Route path="/contact" element={<Contact />} />
 
         <Route path="/parks" element={<Parks/>} />
 

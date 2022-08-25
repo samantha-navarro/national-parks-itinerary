@@ -27,10 +27,16 @@ export default function NavBar ({ setCurrentUser }) {
                     <Link to="/main">HOME</Link>
                 </li>
                 <li>
+                    <Link to="/about">ABOUT</Link>
+                </li>
+                <li>
                     <Link to="/parks">PARKS</Link>
                 </li>
                 <li>
                     <Link to="/itinerary">ITINERARY</Link>
+                </li>
+                <li>
+                    <Link to="/contact">CONTACT</Link>
                 </li>
                 <li>
                     <Link onCLick={handleLogOut} to="/">LOGOUT</Link>
